@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import avatar from "../assets/avatar.png";
+import Button from "../components/button.astro";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<div>
+			<div class="md:grid md:grid-cols-3 md:gap-2 mx-12">
+                <div></div>
+				<div class="hover:drop-shadow-2xl transition duration-500 text-center bg-gradient-to-br from-stone-600 to-stone-700 my-10 md:w-[35rem] sm:w-full justify-self-center rounded-3xl py-4 px-6 align-center justify-center">
+					<div class="divide-y divide-stone-700">
+						<div class="grid justify-center content-center">
+							<Image class="size-48 border p-2 m-8 rounded-[300px]" src={avatar} alt="Image of Yui Funami."></Image>
+							<p class="text-5xl text-white font-medium">Yunoxa</p>
+							<p class="text-gray-300 font-light py-4">Welcome to my site.</p>
+						</div>
+						<div>
+							<p class="text-3xl text-white py-4 font-medium">About</p>
+							<p class="text-gray-300 font-light pb-4">Hello! I'm a hobbyist musician, developer and sound designer. Feel free to check out the buttons below for stuff related to me.</p>
+						</div>
+					    <div>
+							<p class="text-3xl text-white py-4 font-medium">Links</p>
+							<div class="flex flex-wrap gap-y-4 gap-x-1">
+								<div class="flex-auto">
+									<Button text="Blog" URL="https://blog.yunoxa.moe">
+								</div>
+								<div class="flex-auto">
+									<Button text="Music" URL="https://linktr.ee/yunoxa">
+								</div>
+								<div class="flex-auto">
+									<Button text="Steam" URL="https://steamcommunity.com/id/Yunoxa/">
+								</div>
+								<div class="flex-auto">
+									<Button text="Github" URL="https://github.com/Yunoxa">
+								</div>
+								<div class="flex-auto">
+									<Button text="Twitter" URL="https://twitter.com/Yunoxaa">
+								</div>
+								<div class="flex-auto">
+									<Button text="Misskey" URL="https://misskey.io/@yunoxa">
+								</div>
+								<div class="flex-auto">
+									<Button text="YouTube" URL="https://www.youtube.com/channel/UCwJsiNUbnwdrDsFqxl0U56A">
+								</div>
+								<div class="flex-auto">
+									<Button text="Twitch" URL="https://www.twitch.tv/yunoxa">
+								</div>
+								<div class="flex-auto">
+									<Button text="AniDB" URL="https://anidb.net/user/profile">
+								</div>
+								<div class="flex-auto">
+									<Button text="Baka-Updates" URL="https://www.mangaupdates.com/member/y1vj63e/yunoxa">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<style>
+		body {
+			height: 100%;
+			background-image: url("../assets/bg.png");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+	</style>
+</html>
