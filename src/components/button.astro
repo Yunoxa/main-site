@@ -1,11 +1,25 @@
 ---
 import { Image } from 'astro:assets';
-import avatar from "../assets/avatar.png"
+
 const { text } = Astro.props;
 const { URL } = Astro.props;
+const { imagePath } = Astro.props;
+const { colBorder, colDiv, colText, colBG = "bg-stone-700", colBGHov = "hover:bg-stone-900" } = Astro.props;
+
+const images = import.meta.glob('/src/assets/button/*.{jpeg,jpg,png,gif,webp}');
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/button/*.{jpeg,jpg,png,gif,webp}"`);
 ---
 <a href={ URL }>
-    <button class="transition duration-300 w-40 bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-3xl">
-        {text}
+    <button class=`transition-all duration-250 delay-5 hover:shadow-2xl hover:text-shadow-lg hover:drop-shadow-2xl hover:-skew-y-2 shadow-black ${colBG} ${colBGHov} ease-in-out hover:-translate-y-0 hover:scale-105 active:scale-125 hover:origin-center hover:skew-x-2 text-white font-bold px-4 rounded-3xl flex items-center`>
+        <div class=`divide-y ${colDiv} grid items-center`>
+            <span>
+               <Image class:list={["w-32 rounded-full my-2 border-2 border-dotted object-cover aspect-square", colBorder]} src={images[imagePath]()} alt="button image" />
+            </span>
+            <span>
+                <p class:list={["text-xl my-1", colText]}>
+                    {text}
+                </p>
+            </span>
+        </div>
     </button>
 </a>
